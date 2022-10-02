@@ -1,8 +1,10 @@
-import "../styles/globals.css";
+import { ChakraProvider } from "@chakra-ui/react";
 import { AppProps } from "next/app";
-import { MoralisProvider } from "react-moralis";
+import Head from "next/head";
 
-import Header from "../components/Header";
+import MainLayout from "../src/layouts";
+
+import theme from "../src/themes";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -12,10 +14,11 @@ const App = ({ Component, pageProps }: AppProps) => {
         <meta name="description" content="NFT Marketplace" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MoralisProvider initializeOnMount={false}>
-        <Header />
-        <Component {...pageProps} />
-      </MoralisProvider>
+      <ChakraProvider theme={theme}>
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
+      </ChakraProvider>
     </div>
   );
 };

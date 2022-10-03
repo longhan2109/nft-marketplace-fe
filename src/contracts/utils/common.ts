@@ -1,0 +1,7 @@
+const CHAIN_ID = parseInt(process.env.NEXT_PUBLIC_CHAIN_ID || "97");
+const RPC_URL = process.env.NEXT_PUBLIC_RPC_TESTNET;
+
+export const SMART_CONTRACT_ADDRESS = {
+  NFT_MARKETPLACE: { 97: "0x5fDe2935Ed875ed7d26BA841ee7e2eD54b6f1336" },
+  DEFAULT_NFT: { 97: "0x4fc72EF4Dc327f99322816d38a78C2aA59Cbc44b" },
+};

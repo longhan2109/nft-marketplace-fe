@@ -12,7 +12,7 @@ export default function WalletInfo({ address, amount }: WalletInfoProps) {
     <Button variant="outline" ml="10px">
       <HStack>
         <Text>{showSortAddress(address)}</Text>
-        <Image src="/bnb.png" w="25px" alt="bnb" ml="20px" />
+        <Image src="/ethereum.png" w="25px" alt="eth" ml="20px" />
         <Text>{numberFormat(amount)}</Text>
       </HStack>
     </Button>

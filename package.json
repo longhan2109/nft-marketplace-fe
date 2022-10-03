@@ -12,6 +12,8 @@
     "@chakra-ui/react": "^2.3.4",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@ethersproject/abstract-provider": "^5.7.0",
+    "ethers": "^5.7.1",
     "framer-motion": "^6",
     "next": "12.3.1",
     "react": "18.2.0",

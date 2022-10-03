@@ -7,7 +7,7 @@ interface ConnectWalletProps {
 
 const ConnectWallet: React.FC<ConnectWalletProps> = ({ onConnectWallet }) => {
   return (
-    <Button colorScheme="teal" variant="outline" onClick={onConnectWallet}>
+    <Button colorScheme="teal" variant="solid" onClick={onConnectWallet}>
       Connect Wallet
     </Button>
   );

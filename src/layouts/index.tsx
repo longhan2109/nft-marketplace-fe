@@ -3,10 +3,17 @@ import { Flex, Heading, Spacer, Text } from "@chakra-ui/react";
 import { ethers } from "ethers";
 import Link from "next/link";
 import React, { ReactNode, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { ConnectWallet } from "../components";
 import WalletInfo from "../components/WalletInfo";
 import { menus } from "../constants";
+import {
+  setWalletInfo,
+  setWeb3Provider,
+} from "../redux/accounts/account.slices";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { RootState } from "../redux/store";
 import { IWalletInfo } from "../types";
 
 interface MainLayoutProps {
@@ -14,9 +21,8 @@ interface MainLayoutProps {
 }
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
-  const [wallet, setWallet] = useState<IWalletInfo>();
-  const [web3Provider, setWeb3Provider] =
-    useState<ethers.providers.Web3Provider>();
+  const dispatch = useAppDispatch();
+  const { wallet } = useAppSelector((state) => state.account);
 
   const onConnectWallet = async () => {
     if (window.ethereum) {
@@ -31,8 +37,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       const ethBalance = Number.parseFloat(
         ethers.utils.formatEther(bigBalance)
       );
-      setWallet({ address, eth: ethBalance });
-      setWeb3Provider(provider);
+      dispatch(setWalletInfo({ address, eth: ethBalance }));
+      dispatch(setWeb3Provider(provider));
     }
   };
 

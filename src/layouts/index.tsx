@@ -34,10 +34,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       const signer = provider.getSigner();
       const address = await signer.getAddress();
       const bigBalance = await signer.getBalance();
-      const ethBalance = Number.parseFloat(
+      const bnbBalance = Number.parseFloat(
         ethers.utils.formatEther(bigBalance)
       );
-      dispatch(setWalletInfo({ address, eth: ethBalance }));
+      dispatch(setWalletInfo({ address, bnb: bnbBalance }));
       dispatch(setWeb3Provider(provider));
     }
   };
@@ -64,7 +64,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         ))}
 
         {wallet ? (
-          <WalletInfo amount={wallet?.eth || 0} address={wallet?.address} />
+          <WalletInfo amount={wallet?.bnb || 0} address={wallet?.address} />
         ) : (
           <ConnectWallet onConnectWallet={onConnectWallet} />
         )}

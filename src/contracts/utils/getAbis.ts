@@ -1,9 +1,11 @@
-import NFTMarketplaceAbi from "../abis/nft-marketplace.json";
-import DefaultNFTAbi from "../abis/default-nft.json";
-import NFTMarket from "../abis/nft-market.json";
+import NftAbis from "../abis/nft.json";
+import MarketAbis from "../abis/market.json";
+import NftMarketAbis from "../abis/nft-market.json";
+import FlpAbis from "../abis/flp.json";
 
-const getNFTMarketplaceAbis = () => NFTMarketplaceAbi;
-const getDefaultNFTAbis = () => DefaultNFTAbi;
-const getNFTMarketAbis = () => NFTMarket;
+const getNFTAbi = () => NftAbis;
+const getMarketAbi = () => MarketAbis;
+const getNftMarketAbi = () => NftMarketAbis;
+const getFlpAbi = () => FlpAbis;
 
-export { getNFTMarketplaceAbis, getDefaultNFTAbis, getNFTMarketAbis };
+export { getNFTAbi, getMarketAbi, getNftMarketAbi, getFlpAbi };
